@@ -80,11 +80,17 @@ RSpec.describe EntitySpace do
       expect(text_1.lines.count).to eq(7)
       expect(text_1.lines[0]).to eq(text_1_line_1)
       expect(text_1.lines[6]).to eq(text_1_line_7)
+      expect(text_1_line_1.parent).to eq(text_1)
+      expect(text_1_line_7.parent).to eq(text_1)
+      expect(another_line_1.parent).to be_nil
 
       expect(text_2.dimension_text?).to eq(true)
       expect(text_2.lines.count).to eq(7)
       expect(text_2.lines[0]).to eq(text_2_line_1)
       expect(text_2.lines[6]).to eq(text_2_line_7)
+      expect(text_2_line_1.parent).to eq(text_2)
+      expect(text_2_line_7.parent).to eq(text_2)
+      expect(another_line_4.parent).to be_nil
     end
   end
 

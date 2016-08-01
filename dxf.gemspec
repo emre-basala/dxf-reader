@@ -4,9 +4,9 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = "dxf"
-  gem.version       = '0.3.1'
-  gem.authors       = ["Brandon Fosdick"]
-  gem.email         = ["bfoz@bfoz.net"]
+  gem.version       = '1.0.0'
+  gem.authors       = ["Brandon Fosdick && Emre Basala"]
+  gem.email         = [""]
   gem.description   = %q{Read and write DXF files using Ruby}
   gem.summary       = %q{Tools for working with the popular DXF file format}
   gem.homepage      = "http://github.com/bfoz/ruby-dxf"
@@ -18,7 +18,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'geometry', '~> 6.4'
   gem.add_dependency 'sketch', '~> 0.4'
-  gem.add_dependency  'units', '~> 3.0'
+  gem.add_dependency 'units', '~> 3.0'
 
   gem.required_ruby_version = '>= 2.0'
 end

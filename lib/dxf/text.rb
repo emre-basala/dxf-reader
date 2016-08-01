@@ -49,6 +49,7 @@ module DXF
 
     def add_line(line)
       lines << line
+      line.parent = self
     end
 
   end
