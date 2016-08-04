@@ -7,6 +7,7 @@ module DXF
     attr_accessor :content
     attr_accessor :color_code
     attr_accessor :scale
+    attr_accessor :text_height
     # 71
     attr_accessor :text_generation
 
@@ -36,6 +37,7 @@ module DXF
         when '50' then self.rotation = value.to_f
         when '71' then self.text_generation = value.to_f
         when '72' then self.text_justification = value.to_f
+        when '40' then self.text_height = value.to_f
       end
     end
 
