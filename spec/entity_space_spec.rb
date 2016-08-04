@@ -19,10 +19,6 @@ RSpec.describe EntitySpace do
     let!(:text_1_line_6) { DXF::Line.new().tap { |e|  subject.add(e) } }
     let!(:text_1_line_7) { DXF::Line.new().tap { |e|  subject.add(e) } }
 
-    let!(:another_line_1) { DXF::Line.new().tap { |e|  subject.add(e) } }
-    let!(:another_line_2) { DXF::Line.new().tap { |e|  subject.add(e) } }
-    let!(:another_line_3) { DXF::Line.new().tap { |e|  subject.add(e) } }
-
     let!(:text_2) { DXF::Text.new().tap { |e|  subject.add(e) } }
     let!(:text_2_line_1) { DXF::Line.new().tap { |e|  subject.add(e) } }
     let!(:text_2_line_2) { DXF::Line.new().tap { |e|  subject.add(e) } }
@@ -31,8 +27,6 @@ RSpec.describe EntitySpace do
     let!(:text_2_line_5) { DXF::Line.new().tap { |e|  subject.add(e) } }
     let!(:text_2_line_6) { DXF::Line.new().tap { |e|  subject.add(e) } }
     let!(:text_2_line_7) { DXF::Line.new().tap { |e|  subject.add(e) } }
-    let!(:another_line_4) { DXF::Line.new().tap { |e|  subject.add(e) } }
-    let!(:another_line_5) { DXF::Line.new().tap { |e|  subject.add(e) } }
 
     let!(:poly_1) { DXF::LWPolyline.new }
     let!(:line_1) { DXF::Line.new.tap { |e|  subject.add(e) } }
@@ -48,7 +42,6 @@ RSpec.describe EntitySpace do
   describe "adding entities" do
     it "is an ordered list that knows about before" do
       expect(subject.before(random_line_1)).to be_nil
-      expect(subject.before(poly_1)).to eq(another_line_5)
       expect(subject.before(line_1)).to eq(poly_1)
       expect(subject.before(vertex_1)).to eq(line_1)
       expect(subject.before(seq_1)).to eq(vertex_1)
@@ -82,7 +75,7 @@ RSpec.describe EntitySpace do
       expect(text_1.lines[6]).to eq(text_1_line_7)
       expect(text_1_line_1.parent).to eq(text_1)
       expect(text_1_line_7.parent).to eq(text_1)
-      expect(another_line_1.parent).to be_nil
+      expect(random_line_1.parent).to be_nil
 
       expect(text_2.dimension_text?).to eq(true)
       expect(text_2.lines.count).to eq(7)
@@ -90,7 +83,6 @@ RSpec.describe EntitySpace do
       expect(text_2.lines[6]).to eq(text_2_line_7)
       expect(text_2_line_1.parent).to eq(text_2)
       expect(text_2_line_7.parent).to eq(text_2)
-      expect(another_line_4.parent).to be_nil
     end
   end
 

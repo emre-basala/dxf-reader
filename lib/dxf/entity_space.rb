@@ -25,6 +25,10 @@ class EntitySpace
     entities[index + 1]
   end
 
+  def reset
+    @entities = []
+  end
+
   def tie_entities
     tie_polylines
     tie_dimension_texts
@@ -34,16 +38,15 @@ class EntitySpace
 
   def tie_dimension_texts
     entities.reduce do |mem, entity|
-      if mem.is_a?(DXF::Text)
-        if mem && mem.lines.count == 7
-          mem = nil
-        elsif entity.is_a?(DXF::Line)
+
+      if entity.is_a?(DXF::Text)
+         mem = entity
+      elsif entity.is_a?(DXF::Line)
+         if mem.is_a?(DXF::Text)
            mem.add_line(entity)
-        end
-      else
-        if entity.is_a?(DXF::Text)
-          mem = entity
-        end
+         end
+       else
+        mem = nil
       end
       mem
     end
