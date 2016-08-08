@@ -25,6 +25,10 @@ class EntitySpace
     entities[index + 1]
   end
 
+  def reset
+    @entities = []
+  end
+
   def tie_entities
     tie_polylines
     tie_dimension_texts
