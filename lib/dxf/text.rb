@@ -50,6 +50,7 @@ module DXF
     end
 
     def add_line(line)
+      return if line.color_code != 255
       lines << line
       line.parent = self
     end
