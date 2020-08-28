@@ -50,7 +50,7 @@ module DXF
     end
 
     def add_line(line)
-      return if line.color_code != 255
+      return unless [255, 7].include?(line.color_code)
       lines << line
       line.parent = self
     end
