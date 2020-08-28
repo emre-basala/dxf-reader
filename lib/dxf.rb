@@ -1,5 +1,5 @@
 require_relative 'dxf/parser'
-require_relative 'dxf/unparser'
+# require_relative 'dxf/unparser'
 
 module DXF
 =begin
