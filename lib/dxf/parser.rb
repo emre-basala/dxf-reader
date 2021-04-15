@@ -1,6 +1,7 @@
 require_relative 'entity_space'
 require_relative 'entity'
 require_relative 'circle'
+require_relative 'dimension'
 require_relative 'arc'
 require_relative 'line'
 require_relative 'vertex'
